@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.agile.BowlingGameKataTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! - in com.agile.BowlingGameKataTest
+initializationError(com.agile.BowlingGameKataTest)  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.Exception: Method rollAllZeroPins should have no parameters
+
