@@ -49,6 +49,5 @@ public class BowlingGameKataTest{
         assertEquals(expectedScoreTillCurrentFrame, actualScoreTillCurrentFrame);
     }
 
-    @Test
-    public void 
+    
 }
