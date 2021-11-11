@@ -1,7 +1,6 @@
 package com.agile;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,21 +20,14 @@ public class BowlingGameKataTest{
     }
 
     @Test
-    public void eachFrameContainsMaxOfTwoRolls(){
-        int actualRollCountPerFrame = kata.getFrameRollCount();
-        int expectedRollCountPerFrame =2;
-        assertEquals(expectedRollCountPerFrame, actualRollCountPerFrame);
-    }
-
-    @Test
-    public void eachFramecanKnockMax10Pins(){
-        boolean actualPinsCountPerFrame = kata.eachFramecanKnockMax10Pins(5,1);
+    public void shouldPassIfEachFramecanKnockLessThanOrEqualTo10Pins(){
+        boolean actualPinsCountPerFrame = kata.eachFramecanKnockMax10Pins(9,1);
         boolean expectedMaxPinsCountPerFrame = true;
-        assertEquals(expectedMaxPinsCountPerFrame,actualPinsCountPerFrame);
+        assertEquals(expectedMaxPinsCountPerFrame,actualPinsCountPerFrame);        
     }
 
     @Test
-    public void currentFrameTotalScoreIsSumOf2RollsAndPreviousFrameScore(){
+    public void shouldReturnTheSumOfCurrentFramesTwoRollsAndPreviousFrameScore(){//whatweexpectwhenwhatpassed
         //Arrange
         kata.calculateGameScore(3, 5);
         kata.calculateGameScore(5, 4);
@@ -56,4 +48,7 @@ public class BowlingGameKataTest{
         //Assert
         assertEquals(expectedScoreTillCurrentFrame, actualScoreTillCurrentFrame);
     }
+
+    @Test
+    public void 
 }

@@ -10,12 +10,7 @@ public class BowlingGameKata {
     private LinkedList<Frame> bowlingFrames = new LinkedList<Frame>();
     
     public boolean validateNoOfFrames() {
-        return (bowlingFrames.size()<maxNoOfFrames);
-        
-    }
-
-    public int getFrameRollCount() {
-        return 2;
+        return (bowlingFrames.size()<maxNoOfFrames);        
     }
 
     private int getRolledPinsForAFrame(int roll1, int roll2) {
@@ -43,6 +38,10 @@ public class BowlingGameKata {
 
     public boolean eachFramecanKnockMax10Pins(int roll1, int roll2) {
         return ((roll1+roll2) <=10);
+    }
+
+    public LinkedList<Frame> getBowlingFrames(){
+        return bowlingFrames;
     }
 
 }
