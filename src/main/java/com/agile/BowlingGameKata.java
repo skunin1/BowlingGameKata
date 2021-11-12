@@ -12,7 +12,8 @@ public class BowlingGameKata {
     public boolean validateNoOfFrames() {
         return (scoreBoard.size() < maxNoOfFrames);
     }
-//addFrameToScoreBoard
+
+    // addFrameToScoreBoard
     private int addFrameToScoreBoard(int roll1, int roll2) {
         Frame frame = new Frame();
         frame.setRoll1(roll1);
@@ -20,14 +21,20 @@ public class BowlingGameKata {
         if (scoreBoard.size() > 1 && isSpare(scoreBoard.getLast())) {
             scoreBoard.getLast().setFrameScore(getPreviousFrameScore() + roll1);
             frame.setFrameScore(getPreviousFrameScore() + roll1 + roll2);
-        }
-        else if (scoreBoard.size() > 1 && isStrike(scoreBoard.getLast())) {
-            scoreBoard.getLast().setFrameScore(getPreviousFrameScore() + roll1+roll2);
+        } else if (scoreBoard.size() > 1 && isStrike(scoreBoard.getLast())
+                && isStrike(scoreBoard.get(scoreBoard.size() - 2))) {
+            scoreBoard.get(scoreBoard.size()-2).setFrameScore(scoreBoard.get(scoreBoard.size() - 2).getFrameScore() + roll1);
+           
+            scoreBoard.getLast().setFrameScore(getPreviousFrameScore()+roll1 + roll1 + roll2);
+
+            frame.setFrameScore(getPreviousFrameScore() + roll1 + roll2);
+        } else if (scoreBoard.size() > 1 && isStrike(scoreBoard.getLast())) {
+            scoreBoard.getLast().setFrameScore(getPreviousFrameScore() + roll1 + roll2);
+            frame.setFrameScore(getPreviousFrameScore() + roll1 + roll2);
+        } else {
             frame.setFrameScore(getPreviousFrameScore() + roll1 + roll2);
         }
-         else
-            frame.setFrameScore(getPreviousFrameScore() + roll1 + roll2);
-            scoreBoard.add(frame);
+        scoreBoard.add(frame);
         return frame.getFrameScore();
     }
 
@@ -55,7 +62,7 @@ public class BowlingGameKata {
     }
 
     public boolean isSpare(Frame frame) {
-        return (frame.getRoll1()<10 && (frame.getRoll1() + frame.getRoll2() == 10));
+        return (frame.getRoll1() < 10 && (frame.getRoll1() + frame.getRoll2() == 10));
     }
 
     public boolean isStrike(Frame frame) {
