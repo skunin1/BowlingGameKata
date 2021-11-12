@@ -98,7 +98,7 @@ public class BowlingGameKataTest{
         kata.calculateFrameScore(frame2.getRoll1(), frame2.getRoll2());
         kata.calculateFrameScore(frame3.getRoll1(), frame3.getRoll2());
 
-        LinkedList<Frame> scoreBoard=kata.getBowlingFrames();
+        LinkedList<Frame> scoreBoard=kata.getScoreBoard();
         int actualScore=scoreBoard.get(1).getFrameScore();
         assertEquals(expectedScore,actualScore);
     }
@@ -142,7 +142,7 @@ public class BowlingGameKataTest{
         kata.calculateFrameScore(frame2.getRoll1());
         kata.calculateFrameScore(frame3.getRoll1(), frame3.getRoll2());
 
-        LinkedList<Frame> scoreBoard=kata.getBowlingFrames();
+        LinkedList<Frame> scoreBoard=kata.getScoreBoard();
         int actualScore=scoreBoard.get(1).getFrameScore();
         assertEquals(expectedScore,actualScore);        
     }
