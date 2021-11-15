@@ -362,4 +362,135 @@ public class BowlingGameKataTest{
         assertArrayEquals(expectedScoresArray, actualScoresArray);
     }
 
+    @Test
+    public void shouldReturnExpectedScoreWhenAllFramesAreStrikes() {
+        // Assert
+        LinkedList<Frame> frames = new LinkedList<Frame>();
+        Frame frame1 = new Frame();
+        frame1.setRoll1(10);
+        frames.add(frame1);
+
+        Frame frame2 = new Frame();
+        frame2.setRoll1(10);
+        frames.add(frame2);
+
+        Frame frame3 = new Frame();
+        frame3.setRoll1(10);
+        frames.add(frame3);
+
+        Frame frame4 = new Frame();
+        frame4.setRoll1(10);
+        frames.add(frame4);
+
+        Frame frame5 = new Frame();
+        frame5.setRoll1(10);
+        frames.add(frame5);
+
+        Frame frame6 = new Frame();
+        frame6.setRoll1(10);
+        frames.add(frame6);
+
+        Frame frame7 = new Frame();
+        frame7.setRoll1(10);
+        frames.add(frame7);
+
+        Frame frame8 = new Frame();
+        frame8.setRoll1(10);
+        frames.add(frame8);
+
+        Frame frame9 = new Frame();
+        frame9.setRoll1(10);
+        frames.add(frame9);
+
+        Frame frame10 = new Frame();
+        frame10.setRoll1(10);
+        frames.add(frame10);
+        // Act
+        int[] expectedScoresArray = { 30, 60, 90, 120, 150, 180, 210, 240, 270, 300 };
+        kata.calculateFrameScore(frame1.getRoll1());
+        kata.calculateFrameScore(frame2.getRoll1());
+        kata.calculateFrameScore(frame3.getRoll1());
+        kata.calculateFrameScore(frame4.getRoll1());
+        kata.calculateFrameScore(frame5.getRoll1());
+        kata.calculateFrameScore(frame6.getRoll1());
+        kata.calculateFrameScore(frame7.getRoll1());
+        kata.calculateFrameScore(frame8.getRoll1());
+        kata.calculateFrameScore(frame9.getRoll1());
+        kata.calculateFrameScore(frame10.getRoll1(), 10, 10);
+        int[] actualScoresArray = kata.getScoreBoard().stream().mapToInt(Frame::getFrameScore).toArray();
+        // Assert
+        assertArrayEquals(expectedScoresArray, actualScoresArray);
+    }
+
+    @Test
+    public void shouldReturnExpectedScoreWhenAllFramesAreSpares() {
+        // Assert
+        LinkedList<Frame> frames = new LinkedList<Frame>();
+        Frame frame1 = new Frame();
+        frame1.setRoll1(5);
+        frame1.setRoll2(5);
+        frames.add(frame1);
+
+        Frame frame2 = new Frame();
+        frame2.setRoll1(5);
+        frame2.setRoll2(5);
+        frames.add(frame2);
+
+        Frame frame3 = new Frame();
+        frame3.setRoll1(5);
+        frame3.setRoll2(5);
+        frames.add(frame3);
+
+        Frame frame4 = new Frame();
+        frame4.setRoll1(5);
+        frame4.setRoll2(5);
+        frames.add(frame4);
+
+        Frame frame5 = new Frame();
+        frame5.setRoll1(5);
+        frame5.setRoll2(5);
+        frames.add(frame5);
+
+        Frame frame6 = new Frame();
+        frame6.setRoll1(5);
+        frame6.setRoll2(5);
+        frames.add(frame6);
+
+        Frame frame7 = new Frame();
+        frame7.setRoll1(5);
+        frame7.setRoll2(5);
+        frames.add(frame7);
+
+        Frame frame8 = new Frame();
+        frame8.setRoll1(5);
+        frame8.setRoll2(5);
+        frames.add(frame8);
+
+        Frame frame9 = new Frame();
+        frame9.setRoll1(5);
+        frame9.setRoll2(5);
+        frames.add(frame9);
+
+        Frame frame10 = new Frame();
+        frame10.setRoll1(5);
+        frame10.setRoll2(5);
+        frames.add(frame10);
+        // Act
+        int[] expectedScoresArray = { 15,30,45,60,75,90,105,120,135,155 };
+        kata.calculateFrameScore(frame1.getRoll1(),frame1.getRoll2());
+        kata.calculateFrameScore(frame2.getRoll1(),frame2.getRoll2());
+        kata.calculateFrameScore(frame3.getRoll1(),frame3.getRoll2());
+        kata.calculateFrameScore(frame4.getRoll1(),frame4.getRoll2());
+        kata.calculateFrameScore(frame5.getRoll1(),frame5.getRoll2());
+        kata.calculateFrameScore(frame6.getRoll1(),frame6.getRoll2());
+        kata.calculateFrameScore(frame7.getRoll1(),frame7.getRoll2());
+        kata.calculateFrameScore(frame8.getRoll1(),frame8.getRoll2());
+        kata.calculateFrameScore(frame9.getRoll1(),frame9.getRoll2());
+        kata.calculateFrameScore(frame10.getRoll1(), frame10.getRoll2(), 10);
+        int[] actualScoresArray = kata.getScoreBoard().stream().mapToInt(Frame::getFrameScore).toArray();
+        // Assert
+        assertArrayEquals(expectedScoresArray, actualScoresArray);
+    }
+
+
 }
